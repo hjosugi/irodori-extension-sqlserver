@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "extensionId": "irodori.sqlserver",
+  "visibility": "public",
+  "version": "0.1.0",
+  "connector": {
+    "id": "sqlserver.connector",
+    "engine": "sqlserver",
+    "label": "SQL Server",
+    "aliases": [
+      "sqlserver",
+      "SQL Server",
+      "SQL",
+      "Server"
+    ],
+    "defaultPort": 1433,
+    "wire": "sqlserver",
+    "module": "sqlserver.driver",
+    "features": [
+      "metadata",
+      "sql",
+      "streaming",
+      "explain"
+    ]
+  },
+  "connection": {
+    "endpoint": {
+      "modes": [
+        "hostPort",
+        "connectionString"
+      ],
+      "defaultPort": 1433,
+      "fields": [
+        {
+          "id": "host",
+          "label": "Host",
+          "type": "string",
+          "profileField": "host",
+          "required": true
+        },
+        {
+          "id": "port",
+          "label": "Port",
+          "type": "number",
+          "profileField": "port",
+          "default": 1433
+        },
+        {
+          "id": "database",
+          "label": "Database",
+          "type": "string",
+          "profileField": "database"
+        }
+      ]
+    },
+    "authMethods": [
+      "none",
+      "connectionString",
+      "sqlPassword",
+      "windowsIntegrated",
+      "azureAd",
+      "servicePrincipal",
+      "managedIdentity",
+      "accessToken",
+      "customDriverOptions"
+    ],
+    "tls": "optional",
+    "transports": "default",
+    "optionNamespaces": [
+      "sqlserver"
+    ],
+    "customDriverOptions": true
+  },
+  "runtime": {
+    "driverLinked": false
+  },
+  "source": {
+    "knowledgeEngineStatus": "verified",
+    "adapter": "db/mssql.rs"
+  }
+}
