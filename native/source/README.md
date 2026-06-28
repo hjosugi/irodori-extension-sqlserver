@@ -6,8 +6,10 @@ Source SHA-256: `8067c4be01ddb0b5de02477da6c74a2bfde1f4ea513b7e41277070b845f7938
 
 
 This directory is a migration staging area for `irodori.sqlserver`. The active native
-ABI shim lives in `src/lib.rs`; engine-specific connect/query/metadata behavior
-should move here as the connector runtime contract is wired into the desktop app.
+entrypoints live in `src/lib.rs`, shared ABI helpers live in `src/abi.rs`, and
+engine behavior lives in `src/stub.rs` or `src/driver.rs`. Engine-specific
+connect/query/metadata code should move from these snapshots into that behavior
+module as the connector runtime contract is wired into the desktop app.
 
 ## Migration Snapshots
 
